@@ -6,3 +6,8 @@ Setup is generated through maven architype and taken from the [Official QUARKUS 
 The setup is taken from [KataCoda ISTO course](https://www.katacoda.com/courses/istio/deploy-istio-on-kubernetes)
 ## ISTIO MESH network of services example
 ![Bookinfo](bookinfo.JPG)
+## compile native image
+```
+mvn package -Pnative -Dnative-image.docker-build=true
+docker build -f src/main/docker/Dockerfile.native -t agilesolutions/productpage .
+```
