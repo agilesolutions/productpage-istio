@@ -11,19 +11,20 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 @Path("/productpage")
 public class ProductpageResource {
 
-	@Inject
-	@RestClient
-	private ReviewsServiceClient reviewService;
-
-	@Inject
-	@RestClient
-	private DetailsServiceClient detailsService;
+//	@Inject
+//	@RestClient
+//	private ReviewsServiceClient reviewService;
+//
+//	@Inject
+//	@RestClient
+//	private DetailsServiceClient detailsService;
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String hello() {
 
-		return String.format("Product with details : %s reviewed with : %s", detailsService.getDetails(),
-				reviewService.getReviews());
+//		return String.format("Product with details : %s reviewed with : %s", detailsService.getDetails(),
+//				reviewService.getReviews());
+		return String.format("Product with details ");
 	}
 }
