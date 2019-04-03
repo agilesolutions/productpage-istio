@@ -1,4 +1,4 @@
-package sh.agilesolutions.quarkus;
+package ch.agilesolutions.quarkus;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -27,8 +27,12 @@
 	</dependencyManagement>
 	<dependencies>
 		<dependency>
-			<groupId>org.eclipse.microprofile.rest.client</groupId>
-			<artifactId>microprofile-rest-client-api</artifactId>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-resteasy-jsonb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-rest-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>io.quarkus</groupId>
