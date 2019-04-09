@@ -11,7 +11,6 @@ import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
 @Path("/productpage")
 public class ProductpageResource {
@@ -30,27 +29,19 @@ public class ProductpageResource {
     @Value("${reviews.api.url}")
     private String reviewsApiUrl;
 
-	private RestTemplate restTemplate;
-
-	private KeycloakRestTemplate keycloakRestTemplate;
-	
     @Autowired
-    public ProductpageResource(RestTemplate restTemplate, KeycloakRestTemplate keycloakRestTemplate) {
-        this.restTemplate = restTemplate;
-        this.keycloakRestTemplate = keycloakRestTemplate;
-    }
-
+	private KeycloakRestTemplate keycloakRestTemplate;
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String hello() {
 
-		ResponseEntity<String> details = keycloakRestTemplate.getForEntity(detailsApiUrl, String.class);
+		ResponseEntity<String[]> details = keycloakRestTemplate.getForEntity(detailsApiUrl, String[].class);
 
-		ResponseEntity<String> reviews = keycloakRestTemplate.getForEntity(reviewsApiUrl, String.class);
+		ResponseEntity<String[]> reviews = keycloakRestTemplate.getForEntity(reviewsApiUrl, String[].class);
 
 		
-		return String.format("Product with details : %s reviewed with : %s", details, reviews);
+		return String.format("Product with details : %s reviewed with : %s", details.getBody(), reviews.getBody());
 //		return String.format("Product with details : %s reviewed with : %s", detailsService.getDetails(),
 //				reviewService.getReviews());
 	}
